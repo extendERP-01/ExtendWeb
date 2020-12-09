@@ -13,7 +13,9 @@ import nirmalya.aathithya.webmodule.common.utils.ReadExcelData;
 
 @SpringBootApplication
 public class WebModuleApplication {
- 
+ /*
+  * commit by jinesh
+  */
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 	   return builder.build();
