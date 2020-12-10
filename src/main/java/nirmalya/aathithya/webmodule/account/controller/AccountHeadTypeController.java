@@ -78,7 +78,7 @@ public class AccountHeadTypeController {
 
 		return "account/add-account-head-type";
 	}
-
+   /////rohnn
 	/*
 	 * Post Mapping for adding new account head
 	 */

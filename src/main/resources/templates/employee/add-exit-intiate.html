@@ -29,6 +29,12 @@
 </style>
 <script>
 
+
+$("#btnCancel").click(function(){
+	
+	window.location.href = "/employee/view-exit-intiate" ;
+});
+
 function empAutoComplete() {
 	
 	var empid = $("#empId").val();
@@ -106,7 +112,7 @@ function selectAutocompleteValue1(empId,empName,empDepartment,empDepName) {
 /* Function for blank validation */
 
 function checkEmpty(){
-	var depCls =true;
+	/* var depCls =true;
 	$("#myTable > tbody > tr").each(function(i){		
 	$('.depCls').each(function(){
 			if (!blankValidation($(this).attr('id'),"SelectBox" ,"Please Select Department")){
@@ -114,6 +120,18 @@ function checkEmpty(){
 				return false;
 		 		}
 			});
+	}); */
+	
+	
+	
+	var depCls = true;
+	$(".depCls").each(function(){
+	var current_id = $(this).attr("id");
+	if (!blankValidation(current_id,"SelectBox" ,"Please Select Department")){
+		tranningName = false;
+	return false;
+	}
+
 	});
 	 var personCls = true;
 	if(depCls){
@@ -628,7 +646,7 @@ function numberOnly(e) {
 						<div class="form-group">
 							<button type="button" id="submitItems" class="btn btn-success">Submit</button>
 							<button type="button" class="btn btn-warning"
-								onclick="returnToAddPage();">Cancel</button>
+								id="btnCancel">Cancel</button>
 						</div>
 					</div>
 				</div>

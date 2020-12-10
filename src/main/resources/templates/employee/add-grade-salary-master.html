@@ -6,6 +6,15 @@
 	layout:decorate="~{layout/master}">
 <head>
 <script type="text/javascript">
+
+
+
+
+function cancel(){
+
+	window.location.href = "/employee/view-grade-salary-master";
+}
+
 //Check Duplicate
 /* function checkDuplicateComponent(event){
 
@@ -431,15 +440,14 @@ function checkForDuplicate() {
 		<ol class="breadcrumb breadcrumb-arrow">
 			<li><a href="index.html">Home</a></li>
 			<li class="active"><span>Add Grade Salary Master</span></li>
-			<!--  <li><a href="list_Amenity_Form(1.4.3.1.2).html"></a>List Amenity</li> -->
+			  <li><a href="list_Amenity_Form(1.4.3.1.2).html"></a>List Amenity</li>
 		</ol>
 		<div class="card-title">
 			<h4>Add Grade Salary Details</h4>
 			<div class="topbtnright" align="right">
 							<div class="form-group">
 								<button type="button" id="submitItems" class="btn btn-success">Submit</button>
-								<button type="button" class="btn btn-warning"
-									onclick="returnToAddPage();">Cancel</button>
+								<input  type="button" onclick="cancel()" class="btn btn-warning mt-10" value="cancel">
 							</div>
 						</div>
 		</div>

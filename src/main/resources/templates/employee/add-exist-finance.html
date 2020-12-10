@@ -6,6 +6,16 @@
 	layout:decorate="~{layout/master}">
 <head>
 <script type="text/javascript">
+
+
+
+
+
+function cancel(){
+
+	window.location.href = "/employee/view-exist-finance-settlement";
+}
+
 	$(document).ready(function() {
 		$("#regDate").datetimepicker({
 			format : 'd-m-Y',
@@ -17,14 +27,8 @@
 			closeOnDateSelect : true,
 			timepicker : false,
 		})
-	/* 	$("#submit").click(function() {
-
-			window.location.href = "/employee/view-exist-management";
-		});
-		$("#btnCancel").click(function() {
-
-			window.location.href = "/employee/view-exist-management";
-		}); */
+	
+		
 		$("#empId").on('change', function() {
 			var empId = $(this).val();
 			console.log(empId);
@@ -168,7 +172,7 @@ margin-top:10px;}
 										</div>
 										
 										<button type="submit" class="btn btn-success  mt-10">submit</button>
-                           				<button type="reset" value="Reset" class="btn btn-warning">cancel</button>
+                           				<input  type="button" onclick="cancel()" class="btn btn-warning mt-10" value="cancel">
 									</div>
 									<div class="col-lg-6">
 										
