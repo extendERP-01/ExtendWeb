@@ -18,6 +18,7 @@ public class WebModuleApplication {
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
 	   return builder.build();
 	}
+	// dfd
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
