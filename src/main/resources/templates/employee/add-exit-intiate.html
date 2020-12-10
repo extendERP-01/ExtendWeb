@@ -116,7 +116,7 @@ function checkEmpty(){
 			});
 	});
 	 var personCls = true;
-	if(personCls){
+	if(depCls){
 		$("#myTable > tbody > tr").each(function(i){			
 		$(".personCls").each(function(){
 			if (!blankValidation($(this).attr('id'),"SelectBox" ,"Please Select Person Class")){
@@ -127,7 +127,7 @@ function checkEmpty(){
 	 });
 	} 	
 	 var commentCls = true;
-		if(personCls && depCls){
+		if( depCls && personCls){
 			$("#myTable > tbody > tr").each(function(i){			
 			$(".commentCls").each(function(){
 				if (!blankValidation($(this).attr('id'),"SelectBox" ,"Please Select comment")){

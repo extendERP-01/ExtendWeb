@@ -50,6 +50,8 @@ public class ExistManagementController {
 
 		logger.info("Method : addExistManagement starts");
 
+		
+		
 		ExitManagementModel exitManagement = new ExitManagementModel();
 		ExitManagementModel sessionExitManagment = (ExitManagementModel) session.getAttribute("sessionExitManagment");
 
@@ -77,6 +79,8 @@ public class ExistManagementController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 		logger.info("Method : addExistManagement ends");
 
 		return "employee/add-exist-management";
@@ -143,7 +147,15 @@ public class ExistManagementController {
 	public String viewExistManagement(Model model, HttpSession session) {
 
 		logger.info("Method : viewExistManagement starts");
-		
+		try {
+			DropDownModel[] Employee = restClient.getForObject(env.getEmployeeUrl() + "getEmployeeList1",
+					DropDownModel[].class);
+			List<DropDownModel> EmployeeList = Arrays.asList(Employee);
+			model.addAttribute("EmployeeList", EmployeeList);
+		} catch (RestClientException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		logger.info("Method : viewExistManagement ends");
 
 		return "employee/view-exist-management";
