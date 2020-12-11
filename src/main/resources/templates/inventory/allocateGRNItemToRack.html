@@ -271,6 +271,7 @@ function addMore() {
 $(document).ready(function() {
 
 	$(".checkClass").toggle();
+	getShelvesDetails();
     //date picker
     $("#invDate").datetimepicker({
         format: 'd-m-Y',
@@ -675,7 +676,6 @@ function showCheckboxes(event) {
 				</div>
 				<ol class="breadcrumb breadcrumb-arrow">
 					<li><a th:href="${session.DASHBOARD}">Home</a></li>
-					<!-- <li><a href=add-goods-receive-note>Add Goods Receive Notes</a></li> -->
 					<li class="active"><span>Allocate Items To Rack &
 							Generate Barcode</span></li>
 
@@ -755,7 +755,7 @@ function showCheckboxes(event) {
 										<div class="form-group">
 											<label>Sub-Inventoy</label> <select class="form-control"
 												id="subInventory" onchange="getWareHouseBySubInventory()">
-												<option value=>Select</option>
+
 												<option th:each="c:${subInventoryList}" th:value='${c.key}'
 													th:text="${c.name}"></option>
 											</select>
@@ -765,7 +765,9 @@ function showCheckboxes(event) {
 										<div class="form-group">
 											<label>Ware House</label> <select class="form-control"
 												id="warehouse" onclick="getShelvesDetails()">
-												<option value=>Select</option>
+											
+												<option th:each="c:${gwarehouseList}" th:value='${c.key}'
+													th:text="${c.name}"></option>
 											</select>
 										</div>
 									</div>
@@ -831,7 +833,7 @@ function showCheckboxes(event) {
 												onclick="allocateRack(event)" value="Allocate"> <input
 												type="button" th:id="${'barcodeBtn_'+iter.index}"
 												th:unless="${a.allortmentCount <= 0}" class="btn btn-info"
-												onclick="reprint(event)" value="Reprint"> </td>
+												onclick="reprint(event)" value="Reprint"></td>
 										</tr>
 										<!-- <tr class="tr_clone" th:unless="${invGoods}">
 											<td><input type="hidden" id="itemCategory_0"

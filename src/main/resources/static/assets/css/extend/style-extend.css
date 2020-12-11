@@ -297,7 +297,7 @@ input :focus
 }
 .active  
 {
-	background:#0076BA;
+	/* background:#0076BA; */
 } 
 .active> .text .number
 {
@@ -369,7 +369,7 @@ input :focus
 }
 .mrt_25
 {
-  margin-top: 25px;
+  margin-top: 35px;
 }
 /*monalisa css*/
     .fa-search {
@@ -567,6 +567,10 @@ hr {
 {
   padding: 0!important;
 }
+.padding-7
+{
+  padding: 0px 7px!important;
+}
 .no-border{
 border:none;    
 }
@@ -583,6 +587,7 @@ border:none;
     font-weight: 100;
     padding:3px;
     border:1px solid #dee2e6;
+    text-align: center;
 }
 .newtbl>tbody> tr td {
     font-family: 'HelveticaNeue';
@@ -940,6 +945,7 @@ padding:0px 19px;
   font-size: 18px;
   color: #d5d5d5;
   margin-bottom: 10px;
+  font-weight:100;
 }
 .arrow i{
   font-size: 20px;
@@ -1470,7 +1476,7 @@ h5> i
     background: #fff;
     padding: 5px;
     color: #ccc;
-    right: -20px;
+    right: -38px;
     top: 25px;
     float: right;
 }

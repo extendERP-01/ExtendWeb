@@ -9,6 +9,14 @@ public class DropDownModel {
 
 	private String name;
 
+	
+	
+	public DropDownModel(String key, String name) {
+		super();
+		this.key = key;
+		this.name = name;
+	}
+
 	public DropDownModel() {
 		super(); 
 	}

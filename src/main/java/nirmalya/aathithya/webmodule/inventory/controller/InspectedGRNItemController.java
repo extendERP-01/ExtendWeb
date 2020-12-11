@@ -201,11 +201,19 @@ public class InspectedGRNItemController {
 		String id = (new String(encodeByte));
 		JsonResponse<InventoryGoodsReceiveModel> jsonResponse = new JsonResponse<InventoryGoodsReceiveModel>();
 		List<DropDownModel> vendor = new ArrayList<DropDownModel>();
+		List<DropDownModel> itemList = new ArrayList<DropDownModel>();
+		List<DropDownModel> itemList2 = new ArrayList<DropDownModel>();
+		
 		try {
 			InventoryGoodsReceiveModel[] invGoodsReceiveModel = restClient.getForObject(
 					env.getInventoryUrl() + "edit-goods-receives-byId?id=" + id, InventoryGoodsReceiveModel[].class);
 
 			List<InventoryGoodsReceiveModel> invGRN = Arrays.asList(invGoodsReceiveModel);
+			for(InventoryGoodsReceiveModel a : invGRN) {
+				 
+				itemList.add(new DropDownModel(a.getgRnInvoiceItmName() ,a.getGodown()));
+				itemList2.add(new DropDownModel(a.getgRnInvoiceItmName() ,a.getGodown()));
+			}
 			if (invGRN.get(0).getgRNPurchaseOrderId() != null || invGRN.get(0).getgRNPurchaseOrderId() != "") {
 				try {
 					DropDownModel[] dropDownModel = restClient.getForObject(
@@ -220,9 +228,8 @@ public class InspectedGRNItemController {
 				}
 
 				try {
-					DropDownModel[] dropDownModel = restClient.getForObject(
-							env.getInventoryUrl() + "getSubInventoryByStore?id=" + invGRN.get(0).getGodown(),
-							DropDownModel[].class);
+					DropDownModel[] dropDownModel = restClient.postForObject(
+							env.getInventoryUrl() + "getSubInventoryByStorePost",itemList, DropDownModel[].class);
 					List<DropDownModel> subInventoryList = Arrays.asList(dropDownModel);
 					model.addAttribute("subInventoryList", subInventoryList);
 				} catch (RestClientException e) {
@@ -252,6 +259,19 @@ public class InspectedGRNItemController {
 				} catch (RestClientException e) {
 					e.printStackTrace();
 				}
+				
+				/*
+				 * dropDown for item Type add-items-getSubGroup-throughAjax
+				 */
+				try { 
+					DropDownModel[] dropDownModel = restClient.postForObject(
+							env.getInventoryUrl() + "rest-get-ware-house-post", itemList2, DropDownModel[].class);
+					List<DropDownModel> gwarehouseList = Arrays.asList(dropDownModel);
+					model.addAttribute("gwarehouseList", gwarehouseList);
+				} catch (RestClientException e) {
+					e.printStackTrace();
+				}
+				
 			}
 			try {
 
